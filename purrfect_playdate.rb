@@ -44,3 +44,21 @@ selection = TTY::Prompt.new.select("What would you like to do?",  cycle: true, e
 end
 end
 end
+
+ case profile_menu
+    when 1
+        system "clear"
+        box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
+            "Booking Form"
+        end
+        print box
+        puts ""
+        puts "Nice! To make sure the furry ones are not overwhelmed playdates are limited to one hour blocks."
+        puts ""
+        TTY::Prompt.new.select('Please select and day and time you would prefer') do |menu|
+    
+            menu.choice(danger_week[:monday], 1)
+            menu.choice('Profiles', 2)
+            menu.choice('Back to Main Menu', 3)
+        end
+    end
