@@ -1,3 +1,4 @@
+def cat_profiles
 require "tty-prompt"
 require "tty-box"
 
@@ -109,3 +110,5 @@ return
 end
 end
 end
+end
+puts cat_profiles
