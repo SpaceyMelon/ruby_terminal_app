@@ -1,27 +1,20 @@
 
 require "tty-prompt"
 require "tty-box"
-
+system "clear"
 box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
     "PURRFECT PLAYDATE"
 end
-
-system "clear"
-
 print box
-puts ""
-puts "Welcome to Purrfect Playdate!"
-puts ""
-puts "Housemate allergic to cats? Boo"
-puts "Too busy to commit to a furry friend fulltime? The worst"
-puts "Help yourself and help out a kitty in need of a friend by booking in a playdate at your local shelter!"
-puts ""
+
+require "./about.rb"
+welcome_message
 
 while true
-selection = TTY::Prompt.new.select("What would you like to do?",  cycle: true, echo: false) do |menu|
+selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
     menu.choice('Learn More!', 1)
     menu.choice('Make a booking!', 2)
-    menu.choice('Spare', 3)
+    menu.choice('View exisitng booking', 3)
     menu.choice('Exit', 4)
 
     case selection
@@ -33,6 +26,10 @@ selection = TTY::Prompt.new.select("What would you like to do?",  cycle: true, e
         when 2 
         require "./cat_profiles"
         cat_profiles
+
+        when 3 
+        require "./booking.rb"
+        view_booking
 
 
     when 4
