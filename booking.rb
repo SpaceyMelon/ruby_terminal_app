@@ -27,6 +27,48 @@ puts "Spock is free to hangout during the following dates and times: "
     puts "#{day} : #{time}" end
 end
 
-def completed_booking
-    summary[]
-end
+def booking_form
+system "clear"
+
+require "./booking.rb"
+    box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
+        "Booking Form"
+    end
+    
+    print box
+    puts ""
+    puts "Nice! To make sure the furry ones are not overwhelmed playdates are limited to one hour blocks."
+    puts ""
+
+    TTY::Prompt.new.select('Please select and day and time you would prefer') do |menu|
+        
+        menu.choice('Monday | 12:30pm - 1:30pm', 1)
+        menu.choice('Tuesday | 12:30pm - 1:30pm', 2)
+        menu.choice('Thursday | 12:30pm - 1:30pm', 3)
+    end
+
+    puts ""
+    puts "You have selected to have a playdate with Danger on _____"
+    puts ""
+    puts "Now to complete the booking we will just need a few details from you"
+    puts ""
+    prompt = TTY::Prompt.new
+    result = prompt.collect do
+        key(:name).ask("What is your name?")
+      
+        key(:age).ask("And your age?", convert: :int)
+      
+        
+          key(:email).ask("Your email address?", required: true)
+
+        end
+        puts ""
+        puts "Thanks! Please review the booking details below before confirming your booking:"
+        puts ""
+        puts "Name: NAME, AGE"
+        puts "Email: EMAIL"
+        puts "Cat: CAT NAME"
+        puts "When: DAY AND TIME"
+        puts ""
+        prompt.yes?("Would you like to confirm this booking?")
+    end

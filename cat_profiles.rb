@@ -37,13 +37,18 @@ puts ""
     require "./booking.rb"
     danger_week
     puts ""
-    TTY::Prompt.new.select('Book a playdate with Danger?') do |menu|
     
-    menu.choice('Yep!', 1)
-    menu.choice('Profiles', 2)
-    menu.choice('Back to Main Menu', 3)
-    
- 
+    while true
+        bookingmenu = TTY::Prompt.new.select('Book a playdate with Danger?') do |menu|
+        
+        menu.choice('Yep!', 1)
+        menu.choice('Profiles', 2)
+        menu.choice('Back to Main Menu', 3)
+        case bookingmenu
+        when 1
+            booking_form
+    end
+    end
     end
     when 2
     system "clear"
@@ -63,14 +68,18 @@ puts ""
     require "./booking.rb"
     fran_week
     puts ""
-    TTY::Prompt.new.select('Book a playdate with Fran?') do |menu|
+    while true
+    bookingmenu = TTY::Prompt.new.select('Book a playdate with Fran?') do |menu|
     
     menu.choice('Yep!', 1)
     menu.choice('Profiles', 2)
     menu.choice('Back to Main Menu', 3)
-    
-    end
-    
+    case bookingmenu
+    when 1
+        booking_form
+end
+end
+end
     when 3
     system "clear"
     box = TTY::Box.frame(padding: 0, align: :center, width: 80, height: 20) do
@@ -88,12 +97,17 @@ puts ""
     require "./booking.rb"
     spock_week
     puts ""
-    TTY::Prompt.new.select('Book a playdate with Spock?') do |menu|
-    
-    menu.choice('Yep!', 1)
-    menu.choice('Profiles', 2)
-    menu.choice('Back to Main Menu', 3)
-    
+    while true
+        bookingmenu = TTY::Prompt.new.select('Book a playdate with Spock?') do |menu|
+        
+        menu.choice('Yep!', 1)
+        menu.choice('Profiles', 2)
+        menu.choice('Back to Main Menu', 3)
+        case bookingmenu
+        when 1
+            booking_form
+    end
+    end
     end
     
     when 4
@@ -118,19 +132,23 @@ end
     require "./booking.rb"
     smokey_week
     puts ""
-    TTY::Prompt.new.select('Book a playdate with Smokey?') do |menu|
-    
+    while true
+        bookingmenu = TTY::Prompt.new.select('Book a playdate with Smokey?') do |menu|
+        
         menu.choice('Yep!', 1)
         menu.choice('Profiles', 2)
         menu.choice('Back to Main Menu', 3)
+        case bookingmenu
+        when 1
+            require "./purrfect_playdate"
+            booking_form
+        when 2
+            system "clear"
+            puts selection
     end
-  
-
-    when 5
-    system "clear"
-    puts "Bye!"
-    return
     end
+    end
+end
 end
 end
 end
