@@ -1,8 +1,48 @@
+
+    require "tty-prompt"
+    require "tty-box"
+
+    require 'csv'
+    filename = "MOCK_DATA.csv"
+    catlist = CSV.parse(File.read(filename), headers: true)
+    cat_name = catlist.by_col[1]
+
+def booking_menu
+    require "./booking.rb"
+    while true
+        bookingmenu = TTY::Prompt.new.select('Book a playdate?') do |menu|
+        
+        menu.choice('Yep!', 1)
+        menu.choice('Profiles', 2)
+        menu.choice('Back to Main Menu', 3)
+        
+        case bookingmenu
+
+        when 1
+        booking_form
+
+        when 2
+            system "clear"
+            puts selection
+    end
+    end
+    end
+    end
+
+
 def cat_profiles
     require "tty-prompt"
     require "tty-box"
-    
-    
+    require 'csv'
+    filename = "MOCK_DATA.csv"
+    catlist = CSV.parse(File.read(filename), headers: true)
+    cat_name = catlist.by_col[1]
+    cat_age = catlist.by_col[2]
+    cat_breed = catlist.by_col[3]
+    cat_scritch = catlist.by_col[4]
+    cat_toy = catlist.by_col[5]
+    cat_personality1 = catlist.by_col[6]
+    cat_personality2 = catlist.by_col[7]
     
         system "clear"
         box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
@@ -16,140 +56,102 @@ def cat_profiles
             menu.choice('Fran', 2)
             menu.choice('Spock', 3)
             menu.choice('Smokey', 4)
-            menu.choice( 'Back to Main Menu', 5)
-        
+            menu.choice('Back to Main Menu', 5)
+            cat_selection = []
             case profiles
+            
             when 1
+                cat_selection.push(cat_name[0])
                 system "clear"
-     
-                box = TTY::Box.frame(padding: 0, align: :center, width: 80, height: 20) do
-      "Name: Danger\n
-        Age: 4\n
-        Breed: Domestic short hair (Ginger)\n
-        Favourite Toys: Marbles\n
-        Favourite Scritch Spots: Under the chin and between the ears\n
-        Danger is a fiery boy who loves playing chase and hide and seek!\n 
-        He has a bit if an ego though so it's best to let him win to avoid a sulky puss (nothing a scratch under the chin won't fix!)"
+     puts cat_selection
+puts TTY::Box.frame("#{cat_name[0].upcase}", padding: 0, align: :center, border: :thick) 
+puts ""                 
+puts "Name: #{cat_name[0]}\n
+Age: #{cat_age[0]}\n
+Breed: #{cat_breed[0]}\n
+Favourite Toys: #{cat_toy[0]}\n
+Favourite Scritch Spots: #{cat_scritch[0]}\n
+#{cat_personality1[0]}\n 
+#{cat_personality2[0]}"
         
-    end
-    print box
-    puts ""
+        puts ""
         require "./booking.rb"
         danger_week
         puts ""
         
-        while true
-            bookingmenu = TTY::Prompt.new.select('Book a playdate?') do |menu|
-            
-            menu.choice('Yep!', 1)
-            menu.choice('Profiles', 2)
-            menu.choice('Back to Main Menu', 3)
-            case bookingmenu
-            when 1
-                booking_form
-        end
-        end
-        end
+      booking_menu
+
         when 2
-        system "clear"
-        box = TTY::Box.frame(padding: 0, align: :center, width: 80, height: 20) do
-        
-        "Name: Fran\n
-        Age: 2\n
-        Breed: Domestic long hair (Grey and White)\n
-        Favourite Toys: Laser pointer and her jingly strawberry\n
-        Favourite Scritch Spots: Top of her head and base of her tail\n
-        Fran is a polite and bougie lady that let's her wild side out at the site of a laser pointer!\n 
-        As much as she loves to play Fran will just as happily perch close by and allow you to adore her\n
-        **Fran is partial to female company**"
-        end
-        print box
+           system "clear"
+
+puts TTY::Box.frame("#{cat_name[1].upcase}", padding: 0, align: :center, border: :thick) 
+puts ""                 
+puts "Name: #{cat_name[1]}\n
+Age: #{cat_age[1]}\n
+Breed: #{cat_breed[1]}\n
+Favourite Toys: #{cat_toy[1]}\n
+Favourite Scritch Spots: #{cat_scritch[1]}\n
+#{cat_personality1[1]}\n 
+#{cat_personality2[1]}"
+
         puts ""
         require "./booking.rb"
         fran_week
         puts ""
-        while true
-        bookingmenu = TTY::Prompt.new.select('Book a playdate?') do |menu|
-        
-        menu.choice('Yep!', 1)
-        menu.choice('Profiles', 2)
-        menu.choice('Back to Main Menu', 3)
-        case bookingmenu
-        when 1
-            booking_form
-    end
-    end
-    end
+
+      booking_menu
+
         when 3
         system "clear"
-        box = TTY::Box.frame(padding: 0, align: :center, width: 80, height: 20) do
-        
-        "Name: Spock\n
-        Age: 5\n
-        Breed: Domestic Short hair (Black)\n
-        Favourite Toys: Anything dangly!\n
-        Favourite Scritch Spots: Back scratches\n
-        Spock is one energetic lady! She loves chasing and attacking anything you can dangle on the end of a string\n 
-        If all the chasing tires you out she'll let you rest if you play a game of fetch"
-        end        
-        print box
+
+puts TTY::Box.frame("#{cat_name[2].upcase}", padding: 0, align: :center, border: :thick) 
+puts ""                 
+puts "Name: #{cat_name[2]}\n
+Age: #{cat_age[2]}\n
+Breed: #{cat_breed[2]}\n
+Favourite Toys: #{cat_toy[2]}\n
+Favourite Scritch Spots: #{cat_scritch[2]}\n
+#{cat_personality1[2]}\n 
+#{cat_personality2[2]}"
+
         puts ""
         require "./booking.rb"
         spock_week
         puts ""
-        while true
-            bookingmenu = TTY::Prompt.new.select('Book a playdate?') do |menu|
-            
-            menu.choice('Yep!', 1)
-            menu.choice('Profiles', 2)
-            menu.choice('Back to Main Menu', 3)
-            case bookingmenu
-            when 1
-                booking_form
-        end
-        end
-        end
+        booking_menu
         
         when 4
         system "clear"
        
          
     
-        box = TTY::Box.frame(padding: 0, align: :center, width: 80, height: 20) do
-            
-        "Name: Smokey\n
-        Age: 2\n
-        Breed: Domestic long hair (Brown)\n
-        Favourite Toys: Wind up mouse and tunnels!\n
-        Favourite Scritch Spots: Under the chin and the belly\n
-        Smokey is a gentle giant. He may look boistrous when it's playtime but just loves a cuddle!\n 
-        You'll have a hard time saying no to this guy. He has somehow mastered the kitty version of puppy eyes\n
-        "
+      
+
+puts TTY::Box.frame("#{cat_name[3].upcase}", padding: 0, align: :center, border: :thick) 
+puts ""                 
+puts "Name: #{cat_name[3]}\n
+Age: #{cat_age[3]}\n
+Breed: #{cat_breed[3]}\n
+Favourite Toys: #{cat_toy[3]}\n
+Favourite Scritch Spots: #{cat_scritch[3]}\n
+#{cat_personality1[3]}\n 
+#{cat_personality2[3]}"
+
     
-    end        
+       
         print box
         puts ""
         require "./booking.rb"
         smokey_week
         puts ""
-        while true
-            bookingmenu = TTY::Prompt.new.select('Book a playdate?') do |menu|
-            
-            menu.choice('Yep!', 1)
-            menu.choice('Profiles', 2)
-            menu.choice('Back to Main Menu', 3)
-            case bookingmenu
-            when 1
-                require "./purrfect_playdate"
-                booking_form
-            when 2
-                system "clear"
-                puts selection
+booking_menu
         end
         end
         end
     end
-    end
-    end
-    end
+    
+    
+   
     puts cat_profiles
+
+   

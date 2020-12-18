@@ -48,6 +48,7 @@ def booking_form
 system "clear"
 
 require "./booking.rb"
+require "./cat_profiles.rb"
 
 danger_days = ["Monday","Tuesday", "Thursday"]
 danger_times = ["11:30pm - 12:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
@@ -74,7 +75,7 @@ while true
         menu.choice('3', 3)
         case datetime
         when 1
-            puts "You have selected to have a playdate with Danger on #{danger_days[0]} between #{danger_times[0]}"
+            puts "You have selected to have a playdate with #{cat_selection[0]} on #{danger_days[0]} between #{danger_times[0]}"
 booking_info.push(danger_days[0])
 booking_info.push(danger_times[0])
 
