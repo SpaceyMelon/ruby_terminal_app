@@ -7,6 +7,8 @@
     catlist = CSV.parse(File.read(filename), headers: true)
     cat_name = catlist.by_col[1]
 
+    cat_selection = []
+
 def booking_menu
     require "./booking.rb"
     while true
@@ -19,6 +21,7 @@ def booking_menu
         case bookingmenu
 
         when 1
+        cat_selection.push(cat_name[0])
         booking_form
 
         when 2
@@ -61,9 +64,9 @@ def cat_profiles
             case profiles
             
             when 1
-                cat_selection.push(cat_name[0])
+                
                 system "clear"
-     puts cat_selection
+     
 puts TTY::Box.frame("#{cat_name[0].upcase}", padding: 0, align: :center, border: :thick) 
 puts ""                 
 puts "Name: #{cat_name[0]}\n
