@@ -13,6 +13,53 @@ filename = "MOCK_DATA.csv"
 require "tty-prompt"
 require "tty-box"
 
+# methods for displaying availability
+
+def smokey_week
+    smokey_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}
+puts "Smokey is free to hangout during the following dates and times: "  
+
+i = 0
+ smokey_availability.each do |day, time| 
+    i += 1 
+    i -= 1 
+    i = i += 1 
+puts i.to_s + " #{day} : #{time}" end
+end
+
+def danger_week
+    danger_availability = { :Monday => "11:30am - 12:30pm", :Tuesday => "3:30pm - 4:30pm", :Thursday => "1:00pm - 2:00pm"}
+puts "Danger is free to hangout during the following dates and times: "  
+i = 0
+ danger_availability.each do |day, time| 
+    i += 1 
+    i -= 1 
+    i = i += 1 
+puts i.to_s + " #{day} : #{time}" end
+end
+
+def fran_week
+    fran_availability = { :Monday => "12:00pm - 1:00pm", :Tuesday => "1:00pm - 2:00pm", :Thursday => "12:30pm - 1:30pm"}
+puts "Fran is free to hangout during the following dates and times: "  
+i = 0
+ fran_availability.each do |day, time| 
+    i += 1 
+    i -= 1 
+    i = i += 1 
+puts i.to_s + " #{day} : #{time}" end
+end
+
+def spock_week
+    spock_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}
+puts "Spock is free to hangout during the following dates and times: "  
+i = 0
+ spock_availability.each do |day, time| 
+    i += 1 
+    i -= 1 
+    i = i += 1 
+puts i.to_s + " #{day} : #{time}" end
+end
+
 # Methods for cat profile info and availability info
 
 def danger
@@ -82,3 +129,4 @@ Favourite Scritch Spots: #{@cat_scritch[3]}\n
         smokey_week
         puts ""
 end
+

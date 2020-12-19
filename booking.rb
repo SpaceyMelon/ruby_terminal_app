@@ -1,54 +1,12 @@
 
-def smokey_week
-    smokey_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}
-puts "Smokey is free to hangout during the following dates and times: "  
-
-i = 0
- smokey_availability.each do |day, time| 
-    i += 1 
-    i -= 1 
-    i = i += 1 
-puts i.to_s + " #{day} : #{time}" end
-end
-
-def danger_week
-    danger_availability = { :Monday => "11:30am - 12:30pm", :Tuesday => "3:30pm - 4:30pm", :Thursday => "1:00pm - 2:00pm"}
-puts "Danger is free to hangout during the following dates and times: "  
-i = 0
- danger_availability.each do |day, time| 
-    i += 1 
-    i -= 1 
-    i = i += 1 
-puts i.to_s + " #{day} : #{time}" end
-end
-
-def fran_week
-    fran_availability = { :Monday => "12:00pm - 1:00pm", :Tuesday => "1:00pm - 2:00pm", :Thursday => "12:30pm - 1:30pm"}
-puts "Fran is free to hangout during the following dates and times: "  
-i = 0
- fran_availability.each do |day, time| 
-    i += 1 
-    i -= 1 
-    i = i += 1 
-puts i.to_s + " #{day} : #{time}" end
-end
-
-def spock_week
-    spock_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}
-puts "Spock is free to hangout during the following dates and times: "  
-i = 0
- spock_availability.each do |day, time| 
-    i += 1 
-    i -= 1 
-    i = i += 1 
-puts i.to_s + " #{day} : #{time}" end
-end
-
-def booking_form
-system "clear"
-
 require "./booking.rb"
 require "./cat_profiles.rb"
+require "./booking_methods"
+require "csv"
+
+
+def booking_cat
+system "clear"
 
 danger_days = ["Monday","Tuesday", "Thursday"]
 danger_times = ["11:30pm - 12:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
@@ -59,11 +17,9 @@ spock_times = ["12:30pm - 1:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
 smokey_days = ["Monday","Tuesday", "Thursday"]
 smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
  
-
     box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
         "Booking Form"
     end
-    
     print box
  
     puts ""
@@ -89,7 +45,7 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
     availability_times = fran_times 
      
 
-elsif @booking_info[0] == "Spock"
+    elsif @booking_info[0] == "Spock"
     
 spock_week
 availability_days = spock_days
@@ -115,18 +71,19 @@ availability_times = smokey_times
                 puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[0]} between #{availability_times[0]}"
     @booking_info.push(availability_days[0])
     @booking_info.push(availability_times[0])
-    
+    booking_user
     when 2
-        puts "You have selected to have a playdate with #{booking_info[0]} on #{availability_days[1]} between #{availability_times[1]}"
+        puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[1]} between #{availability_times[1]}"
     @booking_info.push(availability_days[1])
     @booking_info.push(availability_times[1])
-    break
+    booking_user
     when 3
-        puts "You have selected to have a playdate with #{booking_info[0]} on #{availability_days[2]} between #{availability_times[2]}"
+        puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[2]} between #{availability_times[2]}"
     @booking_info.push(availability_days[2])
     @booking_info.push(availability_times[2])
-    
-    
+    booking_user
+    end
+    def booking_user
     puts ""
     puts "Now to complete the booking we will just need a few details from you"
     puts ""
@@ -140,52 +97,48 @@ availability_times = smokey_times
         
         email = prompt.ask("Your email address?", required: true)
         @booking_info.push(email)
-
-        puts ""
-        puts "Thanks! Please review the booking details below before confirming your booking:"
-        puts "Name: #{@booking_info[3]}" 
-        puts "Age: #{@booking_info[4]}"
-        puts "Email: #{@booking_info[5]}"
-        puts "Cat: #{@booking_info[0]}"
-        puts "When: #{@booking_info[1]} between #{@booking_info[2]}"
-        puts ""
         
+        booking_details
      prompt = TTY::Prompt.new
      prompt.yes?("Would you like to confirm this booking?")
+
+        system "clear"
+
      system "clear"
 puts "_____________________________________________________________________"
      puts ""
      box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
         "Booking Confirmed"
     end
-   
     print box
-    puts ""
-    puts "Name: #{@booking_info[3]}"
-    puts "Age: #{@booking_info[4]}"
-    puts "Email: #{@booking_info[5]}"
-    puts "Cat: #{@booking_info[0]}"
-    puts "When: #{@booking_info[1]} between #{@booking_info[2]}"
-    puts ""
-   
+    
+    booking_details 
 puts "_____________________________________________________________________"
 
 require 'json'
 File.open("text.txt", "w") do |file|
-    file.write booking_info.to_json
-    File.read("test.txt")
+    file.write @booking_info.to_json
+    File.read("text.txt")
     
     end
 while true
-        selection = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
+        final = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
             menu.choice('Back to Main Menu', 1)
             menu.choice('Exit', 2)
 
         
-            case selection
+            case final
+
+            when 1 
                 
-                when 1
-                  return
+                system "clear"
+                require "./purrfect_playdate.rb"
+                return selection
+                
+                when 2
+                    system "clear"
+                   puts "Bye!"
+                exit
                 end
               end
     end
@@ -193,5 +146,6 @@ while true
 end
 end
 end
+
 
 
