@@ -2,7 +2,7 @@
     require "tty-prompt"
     require "tty-box"
     
-
+# method that displays menu of profiles
     def booking_menu
         
         while true
@@ -16,12 +16,11 @@
             case bookingmenu
                 
             when 1
-        require "./booking.rb"
-            booking_cat
+                require "./booking.rb"
+                booking_cat
     
             when 2
                 system "clear"
-                
                 cat_profiles
     
             when 3 
@@ -32,22 +31,22 @@
         end
         end
         end
-    end
+        end
     
 
 
-
+# methods for displaying cat profiles once selected from menu
 def cat_profiles
+
     require "./cat_methods.rb"
-
-
-        system "clear"
+    system "clear"
         box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
             "Cat Profiles"
         end
         
         print box
-       while true
+        puts ""
+        while true
         profiles = TTY::Prompt.new.select("Pick a kitty below to see their profile and booking info") do |menu|
         
             menu.choice('Danger', 1)
@@ -94,5 +93,4 @@ def cat_profiles
         end
     end
     
-    
-        puts cat_profiles
+    puts cat_profiles

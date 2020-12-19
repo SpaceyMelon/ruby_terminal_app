@@ -13,7 +13,7 @@ filename = "MOCK_DATA.csv"
 require "tty-prompt"
 require "tty-box"
 
-# methods for displaying availability
+# method loops for displaying availability
 
 def smokey_week
     smokey_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}

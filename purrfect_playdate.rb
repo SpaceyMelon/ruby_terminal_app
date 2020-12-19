@@ -2,9 +2,8 @@
 require "tty-prompt"
 require "tty-box"
 
-
-
 system "clear"
+# heading
 box = TTY::Box.frame("
 ██████  ██    ██ ██████  ██████  ███████ ███████  ██████ ████████ 
 ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██         ██    
@@ -25,7 +24,7 @@ puts ""
 require "./about.rb"
 
 welcome_message
-
+# main menu 
 while true
 selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
     menu.choice('Learn More!', 1)
@@ -39,22 +38,17 @@ selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
         require "./about.rb"
         about
         
-    
-         
         when 2 
         require "./cat_profiles"
         cat_profiles
 
         when 3 
-            begin
-        require "./booking_methods.rb"
-        check_for_booking
-            
-            end
-            
-
-
-    when 4
+        begin
+          require "./booking_methods.rb"
+          check_for_booking
+        end
+    
+        when 4
         system "clear"
         puts "Bye!"
         exit 
