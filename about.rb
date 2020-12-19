@@ -1,4 +1,5 @@
 def about
+  
     system "clear"
             box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
                 "What do we do?"
@@ -16,14 +17,15 @@ def about
 
            
                 case about_menu
-                    
+                  
                     when 1
                       system "clear"
-                      require "./purrfect_playdate.rb"
-                      selection
-
+                      return welcome_message
+                
                     when 2
-                      return
+                      system "clear"
+                      puts "Bye!"
+                      exit
                     end
                   end
                 end
