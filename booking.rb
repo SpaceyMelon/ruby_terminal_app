@@ -121,6 +121,7 @@ File.open("text.txt", "w") do |file|
     File.read("text.txt")
     
     end
+
 while true
         final = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
             menu.choice('Back to Main Menu', 1)

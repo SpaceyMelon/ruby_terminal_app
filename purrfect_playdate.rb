@@ -5,10 +5,23 @@ require "tty-box"
 
 
 system "clear"
-box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
-    "PURRFECT PLAYDATE"
-end
+box = TTY::Box.frame("
+██████  ██    ██ ██████  ██████  ███████ ███████  ██████ ████████ 
+██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██         ██    
+██████  ██    ██ ██████  ██████  █████   █████   ██         ██    
+██      ██    ██ ██   ██ ██   ██ ██      ██      ██         ██    
+██       ██████  ██   ██ ██   ██ ██      ███████  ██████    ██    
+                                                                  
+                                                                  
+██████  ██       █████  ██    ██ ██████   █████  ████████ ███████ 
+██   ██ ██      ██   ██  ██  ██  ██   ██ ██   ██    ██    ██      
+██████  ██      ███████   ████   ██   ██ ███████    ██    █████   
+██      ██      ██   ██    ██    ██   ██ ██   ██    ██    ██      
+██      ███████ ██   ██    ██    ██████  ██   ██    ██    ███████")
+
 print box
+
+puts ""
 require "./about.rb"
 
 welcome_message
@@ -33,8 +46,12 @@ selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
         cat_profiles
 
         when 3 
-        require "./booking.rb"
-        view_booking
+            begin
+        require "./booking_methods.rb"
+        check_for_booking
+            
+            end
+            
 
 
     when 4

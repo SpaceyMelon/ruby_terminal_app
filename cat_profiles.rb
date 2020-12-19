@@ -16,7 +16,7 @@
             case bookingmenu
                 
             when 1
-        
+        require "./booking.rb"
             booking_cat
     
             when 2
