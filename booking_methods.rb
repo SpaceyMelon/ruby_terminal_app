@@ -4,11 +4,11 @@ require "tty-prompt"
 
 def booking_details
 puts ""
-puts "Name: #{@booking_info[3]}"
-puts "Age: #{@booking_info[4]}"
-puts "Email: #{@booking_info[5]}"
-puts "Cat: #{@booking_info[0]}"
-puts "When: #{@booking_info[1]} between #{@booking_info[2]}"
+puts Rainbow("Name: #{@booking_info[3]}").rebeccapurple
+puts Rainbow("Age: #{@booking_info[4]}").rebeccapurple
+puts Rainbow("Email: #{@booking_info[5]}").rebeccapurple
+puts Rainbow("Cat: #{@booking_info[0]}").rebeccapurple
+puts Rainbow("When: #{@booking_info[1]} between #{@booking_info[2]}").rebeccapurple
 puts ""
 end
 
@@ -44,15 +44,15 @@ def view_booking
     require 'json'
 
     box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
-     "Your Current Booking"
+     Rainbow("Your Current Booking").rebeccapurple
     end
     print box
     puts ""
-puts "Name: #{myarray[3]}"
-puts "Age: #{myarray[4]}"
-puts "Email: #{myarray[5]}"
-puts "Cat: #{myarray[0]}"
-puts "When: #{myarray[1]} between #{myarray[2]}"
+puts Rainbow("Name: #{myarray[3]}").rebeccapurple
+puts Rainbow("Age: #{myarray[4]}").rebeccapurple
+puts Rainbow("Email: #{myarray[5]}").rebeccapurple
+puts Rainbow("Cat: #{myarray[0]}").rebeccapurple
+puts Rainbow("When: #{myarray[1]} between #{myarray[2]}").rebeccapurple
 puts ""
 
     prompt = TTY::Prompt.new
@@ -66,7 +66,7 @@ if cancel == "y"
     File.open(bookings,'w+'){|f| f.write(text)}
 system "clear"
 box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
-    "Booking Cancelled!"
+    Rainbow("Booking Cancelled!").lightcoral
 end
 print box
  

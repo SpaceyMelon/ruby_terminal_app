@@ -37,11 +37,11 @@
 
 # methods for displaying cat profiles once selected from menu
 def cat_profiles
-
+require 'rainbow'
     require "./cat_methods.rb"
     system "clear"
         box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
-            "Cat Profiles"
+            Rainbow("Cat Profiles").seagreen
         end
         
         print box

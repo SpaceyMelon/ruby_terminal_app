@@ -1,10 +1,10 @@
 
 require "tty-prompt"
 require "tty-box"
-
+require 'rainbow'
 system "clear"
 # heading
-box = TTY::Box.frame("
+box = TTY::Box.frame Rainbow("
 ██████  ██    ██ ██████  ██████  ███████ ███████  ██████ ████████ 
 ██   ██ ██    ██ ██   ██ ██   ██ ██      ██      ██         ██    
 ██████  ██    ██ ██████  ██████  █████   █████   ██         ██    
@@ -16,13 +16,14 @@ box = TTY::Box.frame("
 ██   ██ ██      ██   ██  ██  ██  ██   ██ ██   ██    ██    ██      
 ██████  ██      ███████   ████   ██   ██ ███████    ██    █████   
 ██      ██      ██   ██    ██    ██   ██ ██   ██    ██    ██      
-██      ███████ ██   ██    ██    ██████  ██   ██    ██    ███████")
+██      ███████ ██   ██    ██    ██████  ██   ██    ██    ███████").darkviolet
 
 print box
 
 puts ""
 require "./about.rb"
-
+require 'colorize'
+require 'rainbow'
 welcome_message
 # main menu 
 while true
@@ -50,7 +51,7 @@ selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
     
         when 4
         system "clear"
-        puts "Bye!"
+        puts "Thanks for stooping by!"
         exit 
 
    

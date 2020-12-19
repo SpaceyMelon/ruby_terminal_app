@@ -1,30 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    diff-lcs (1.4.4)
-    paint (1.0.1)
+    awesome_print (1.8.0)
+    colorize (0.8.1)
     pastel (0.8.0)
       tty-color (~> 0.5)
-    rspec (3.10.0)
-      rspec-core (~> 3.10.0)
-      rspec-expectations (~> 3.10.0)
-      rspec-mocks (~> 3.10.0)
-    rspec-core (3.10.0)
-      rspec-support (~> 3.10.0)
-    rspec-expectations (3.10.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.10.0)
-    rspec-mocks (3.10.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.10.0)
-    rspec-support (3.10.0)
+    rainbow (3.0.0)
     strings (0.2.0)
       strings-ansi (~> 0.2)
       unicode-display_width (~> 1.5)
       unicode_utils (~> 1.4)
     strings-ansi (0.2.0)
-    terminal-menu (1.0.1)
-      paint (~> 1.0, >= 1.0.1)
     tty-box (0.6.0)
       pastel (~> 0.8)
       strings (~> 0.2.0)
@@ -47,8 +33,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  rspec (~> 3.10)
-  terminal-menu (~> 1.0)
+  awesome_print
+  colorize
+  rainbow
   tty-box
   tty-prompt
 

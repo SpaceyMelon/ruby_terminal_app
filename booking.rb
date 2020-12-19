@@ -24,10 +24,10 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
     print box
  
     puts ""
-    puts "Nice! To make sure the furry ones are not overwhelmed playdates are limited to one hour blocks."
+    puts Rainbow("Nice! To make sure the furry ones are not overwhelmed playdates are limited to one hour blocks.").lightcoral
     
     puts ""
-    puts "Please type the the name of the cat you would like to hang out with"
+    puts Rainbow("Please type the the name of the cat you would like to hang out with").lightcoral
     puts ""
 
     # empty arrays used to formulate completed booking
@@ -69,50 +69,50 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
     end   
 # menu to select preferred time and display confirmation
     while true
-        datetime = TTY::Prompt.new.select('Please select and day and time you would prefer') do |menu|
+        datetime = TTY::Prompt.new.select Rainbow('Please select and day and time you would prefer').lightcoral do |menu|
             
             menu.choice('1', 1)
             menu.choice('2', 2)
             menu.choice('3', 3)
             case datetime
             when 1
-                puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[0]} between #{availability_times[0]}"
+                puts Rainbow("You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[0]} between #{availability_times[0]}").lightcoral
     @booking_info.push(availability_days[0])
     @booking_info.push(availability_times[0])
     booking_user
     when 2
-        puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[1]} between #{availability_times[1]}"
+        puts Rainbow("You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[1]} between #{availability_times[1]}").lightcoral
     @booking_info.push(availability_days[1])
     @booking_info.push(availability_times[1])
     booking_user
     when 3
-        puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[2]} between #{availability_times[2]}"
+        puts Rainbow("You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[2]} between #{availability_times[2]}").lightcoral
     @booking_info.push(availability_days[2])
     @booking_info.push(availability_times[2])
     booking_user
     end
     def booking_user
     puts ""
-    puts "Now to complete the booking we will just need a few details from you"
+    puts Rainbow("Now to complete the booking we will just need a few details from you").seagreen
     puts ""
     
     # ask prompts to gather user input for booking
     prompt = TTY::Prompt.new
 
-        name = prompt.ask("What is your name?")
+        name = prompt.ask Rainbow("What is your name?").rebeccapurple
         @booking_info.push(name)
         
-        age = prompt.ask("And your age?")
+        age = prompt.ask Rainbow("And your age?").rebeccapurple
         @booking_info.push(age)
         
-        email = prompt.ask("Your email address?", required: true)
+        email = prompt.ask Rainbow("Your email address?").rebeccapurple
         @booking_info.push(email)
         
         booking_details
      prompt = TTY::Prompt.new
 
      # booking confirmation
-     prompt.yes?("Would you like to confirm this booking?")
+     prompt.yes? Rainbow("Would you like to confirm this booking?").lightcoral
 
         system "clear"
 
@@ -120,7 +120,7 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
 puts "_____________________________________________________________________"
      puts ""
      box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
-        "Booking Confirmed"
+        Rainbow("Booking Confirmed").rebeccapurple
     end
     print box
     
@@ -149,7 +149,7 @@ while true
                 
       when 2
           system "clear"
-          puts "Bye!"
+          puts "Thanks for stooping by!"
           exit
           end
           end
