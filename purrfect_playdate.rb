@@ -20,8 +20,9 @@ selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
     case selection
         
         when 1
-        require "./about"
+        
         about
+    
          
         when 2 
         require "./cat_profiles"

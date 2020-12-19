@@ -10,14 +10,19 @@ def about
          puts "Purrfect Playdate provides a service that results in the more sociable feline friends getting some much needed playtime without putting further strain on the already limited resources in the animal shelter industry."
           puts ""
           while true
-            selection = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
+            about_menu = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
                 menu.choice('Back to Main Menu', 1)
                 menu.choice('Exit', 2)
 
-            
-                case selection
+           
+                case about_menu
                     
                     when 1
+                      system "clear"
+                      require "./purrfect_playdate.rb"
+                      selection
+
+                    when 2
                       return
                     end
                   end

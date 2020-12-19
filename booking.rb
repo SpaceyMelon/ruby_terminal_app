@@ -52,7 +52,13 @@ require "./cat_profiles.rb"
 
 danger_days = ["Monday","Tuesday", "Thursday"]
 danger_times = ["11:30pm - 12:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
-booking_info =[] 
+fran_days = ["Monday","Tuesday", "Thursday"]
+fran_times = ["12:00pm - 1:00pm","1:00pm - 2:OOpm", "12:30pm - 1:30pm"]
+spock_days = ["Monday","Tuesday", "Thursday"]
+spock_times = ["12:30pm - 1:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
+smokey_days = ["Monday","Tuesday", "Thursday"]
+smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
+ 
 
     box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
         "Booking Form"
@@ -62,43 +68,86 @@ booking_info =[]
  
     puts ""
     puts "Nice! To make sure the furry ones are not overwhelmed playdates are limited to one hour blocks."
+    
     puts ""
-    danger_week
-    puts""
-
-    booking_info =[] 
-while true
-    datetime = TTY::Prompt.new.select('Please select and day and time you would prefer') do |menu|
+    @booking_info = [] 
+    availability_times = []
+    availability_days = []
+    prompt = TTY::Prompt.new
+    cat_name = prompt.ask("Please enter the the name of the cat you would like to hang out with")
+    @booking_info.push(cat_name)
+    
+    if @booking_info[0] == "Danger"
         
-        menu.choice('1', 1)
-        menu.choice('2', 2)
-        menu.choice('3', 3)
-        case datetime
-        when 1
-            puts "You have selected to have a playdate with #{cat_selection[0]} on #{danger_days[0]} between #{danger_times[0]}"
-booking_info.push(danger_days[0])
-booking_info.push(danger_times[0])
+    danger_week
+        availability_days = danger_days
+        availability_times = danger_times
 
+    elsif @booking_info[0] == "Fran"
+        fran_week
+    availability_days = fran_days
+    availability_times = fran_times 
+     
+
+elsif @booking_info[0] == "Spock"
+    
+spock_week
+availability_days = spock_days
+    availability_times = spock_times
+
+elsif @booking_info[0] == "Smokey"
+    puts
+smokey_week
+availability_days = smokey_days
+availability_times = smokey_times
+
+    else puts "Invalid kitty name! please try again"
+    end   
+
+    while true
+        datetime = TTY::Prompt.new.select('Please select and day and time you would prefer') do |menu|
+            
+            menu.choice('1', 1)
+            menu.choice('2', 2)
+            menu.choice('3', 3)
+            case datetime
+            when 1
+                puts "You have selected to have a playdate with #{@booking_info[0]} on #{availability_days[0]} between #{availability_times[0]}"
+    @booking_info.push(availability_days[0])
+    @booking_info.push(availability_times[0])
+    
+    when 2
+        puts "You have selected to have a playdate with #{booking_info[0]} on #{availability_days[1]} between #{availability_times[1]}"
+    @booking_info.push(availability_days[1])
+    @booking_info.push(availability_times[1])
+    break
+    when 3
+        puts "You have selected to have a playdate with #{booking_info[0]} on #{availability_days[2]} between #{availability_times[2]}"
+    @booking_info.push(availability_days[2])
+    @booking_info.push(availability_times[2])
+    
+    
     puts ""
     puts "Now to complete the booking we will just need a few details from you"
     puts ""
     prompt = TTY::Prompt.new
 
         name = prompt.ask("What is your name?")
-        booking_info.push(name)
+        @booking_info.push(name)
         
         age = prompt.ask("And your age?")
-        booking_info.push(age)
+        @booking_info.push(age)
         
         email = prompt.ask("Your email address?", required: true)
-        booking_info.push(email)
+        @booking_info.push(email)
 
         puts ""
         puts "Thanks! Please review the booking details below before confirming your booking:"
-        puts "Name: #{booking_info[2]}, #{booking_info[3]}"
-        puts "Email: #{booking_info[4]}"
-        puts "Cat: Danger"
-        puts "When: #{booking_info[0]} between #{booking_info[1]}"
+        puts "Name: #{@booking_info[3]}" 
+        puts "Age: #{@booking_info[4]}"
+        puts "Email: #{@booking_info[5]}"
+        puts "Cat: #{@booking_info[0]}"
+        puts "When: #{@booking_info[1]} between #{@booking_info[2]}"
         puts ""
         
      prompt = TTY::Prompt.new
@@ -109,12 +158,14 @@ puts "_____________________________________________________________________"
      box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
         "Booking Confirmed"
     end
+   
     print box
     puts ""
-    puts "Name: #{booking_info[2]}, #{booking_info[3]}"
-    puts "Email: #{booking_info[4]}"
-    puts "Cat: Danger"
-    puts "When: #{booking_info[0]} between #{booking_info[1]}"
+    puts "Name: #{@booking_info[3]}"
+    puts "Age: #{@booking_info[4]}"
+    puts "Email: #{@booking_info[5]}"
+    puts "Cat: #{@booking_info[0]}"
+    puts "When: #{@booking_info[1]} between #{@booking_info[2]}"
     puts ""
    
 puts "_____________________________________________________________________"
@@ -143,14 +194,4 @@ end
 end
 end
 
-def view_booking
-    system "clear"
-    view=[]
-    File.foreach('test.txt') { |item| view << item }
-    puts view
-    puts "Name: #{view}, #{view}"
-    puts "Email: #{view[1]}"
-    puts "Cat: Danger"
-    puts "When: #{view}"
-end
 
