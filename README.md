@@ -6,9 +6,9 @@ Purrfect Playdate is an app that allows a user to book in a playdate with a kitt
 
 # Features
 
-1. # Information section that provides further context and vital info
-2. # Ability to browse profiles before booking
-3. # User can cancel booking
+1.  Information section that provides further context and vital info
+2.  Ability to browse profiles before booking
+3.  User can cancel booking
 4.  # Ability to book in a playdate with an available cat
 The main purpose and fuction of the app is to book in a playdate with a cat.
 The details of the cats profile are stored in a csv file as they are referrenced multiple times in the booking process. The booking information is obtained through a series of prompts with the responses being pushed to an array in the order they're obtained. Using tty-prompt has made validation easy and any validation errors will be handled via an if loop or case statements to direct the user to attempt the input again. Once all required input is received the array is written to a text file.
@@ -20,7 +20,7 @@ In order to keep vital and frequently referrenced information stored in a centra
 This also provide and easy and user friendly way for for those wanting to use the app for commercial use. By assigning columns in the file as instance variables it means the cat profiles can be deleted and changed without needing to also change the variables within the .rb files.
 Once the .csv is parsed it is assigned to an instance variable. I then assigned each column header in the file as it's own instance variable so I could access specific info such as the cats name by using the correct array index.
 # Flowchart
-[Terminal App Flowchart](./docs/flowchart.png)
+[Terminal App Flowchart](./docs/flowchat.png)
 
 # Control Flow outline
 The user will be navigated through the app using mainly select menu options and as aswering ask prompts.
@@ -34,4 +34,14 @@ The code is split across multiple files in order to have more flexibility and co
 [Test One](./docs/Test1.PNG)
 [Test Two](./docs/Test2.PNG)
 [Test Three](./docs/Test3.PNG)
+
+# Trello
+
+[Trello One](./docs/Trello1.PNG)
+[Trello Two](./docs/Trello2.PNG)
+[Trello Three](./docs/Trello3.PNG)
+[Trello Four](./docs/Trello4.PNG)
+[Trello Five](./docs/Trello5.PNG)
+[Trello Six](./docs/Trello6.PNG)
+[Trello Seven](./docs/Trello7.PNG)
 

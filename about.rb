@@ -34,7 +34,7 @@ def about
               end
 # welcome message displayed on homepage
 def welcome_message
-  require 'colorize'
+ 
   require 'rainbow'
 puts ""
 puts Rainbow("Welcome to Purrfect Playdate!").seagreen
