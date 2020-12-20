@@ -14,7 +14,8 @@ def about
           while true
             about_menu = TTY::Prompt.new.select("What next?",  cycle: true, echo: false) do |menu|
                 menu.choice('Back to Main Menu', 1)
-                menu.choice('Exit', 2)
+                menu.choice('Creepy Cryptozoologist', 2)
+                menu.choice('Exit', 3)
 
            
                 case about_menu
@@ -22,8 +23,13 @@ def about
                     when 1
                       system "clear"
                       return welcome_message
-                
+
                     when 2
+                      require "./booking_methods"
+                      require "rainbow"
+                      crypto_game
+                
+                    when 3
                       system "clear"
                       puts "Thanks for stopping by!"
                       exit

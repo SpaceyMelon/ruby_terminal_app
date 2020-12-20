@@ -4,6 +4,28 @@ https://github.com/SpaceyMelon/ruby_terminal_app
 
 Purrfect Playdate is an app that allows a user to book in a playdate with a kitty living in a local shelter. There is a common misconception that cats are less sociable and require fewer human interactions than other domesticated pets. Purrfect Playdate provides a service that results in the more sociable feline friends getting some much needed playtime without putting further strain on the already limited resources in the animal shelter industry. The app suits those animal lovers who are unable to house pets permanently (housemates are allergic, housing isn’t suitable etc) as well as those that find emotional comfort in the company of animals but cannot take on the responsibility of pet ownership. Another benefit of the app would be the hope that it would increase the number of permanent animal adoptions. Too often shelter animals are adopted and then returned due to not being the “right fit” for the household or the adopter having discovered that they are not an animal person. Having the ability to have playdates on site at the shelter is a great way to determine if 1) the adopter is comfortable around animals and 2) that the cat is comfortable with the human. Being able to determine these factors without the commitment of fostering or adopting could result in fewer ill thought out adoptions and more animals finding their forever homes. Those who wish to book in a playdate will have the option of choosing a cat to hang out with by perusing the profiles or by taking a personality quiz and being paired up with a cat that suits best. They will then have the option of booking a date and time as well as how long they would like the playdate to be (max one hour – anything more would be tiring for the furry friend). Once these details are selected there will be a summary of the booking before the customer can confirm and view the completed booking. 
 
+# Install
+
+Install the app -
+
+1. git clone https://github.com/SpaceyMelon/ruby_terminal_app.git
+
+2. cd ruby_terminal_app
+
+3. chmod +x run_app.sh
+
+4. ./run_app.sh
+
+Dependancies - Ruby Gems
+gem "tty-prompt"
+gem "tty-box"
+gem "rainbow"
+gem "cat_breeds"
+
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091)
+
+
+
 # Features
 
 1.  Information section that provides further context and vital info

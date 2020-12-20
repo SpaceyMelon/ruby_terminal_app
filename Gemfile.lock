@@ -1,7 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    gemoji (3.0.1)
+    cat_breeds (0.1.4)
+      nokogiri (>= 1.8.5)
+    catgame (0.0.7)
+    cryptozoologist (3.2.0)
+    mini_portile2 (2.4.0)
+    nokogiri (1.10.10)
+      mini_portile2 (~> 2.4.0)
     pastel (0.8.0)
       tty-color (~> 0.5)
     rainbow (3.0.0)
@@ -29,10 +35,13 @@ GEM
     wisper (2.0.1)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
-  gemoji
+  cat_breeds
+  catgame
+  cryptozoologist
   rainbow
   tty-box
   tty-prompt

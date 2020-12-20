@@ -9,6 +9,7 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem "tty-prompt"
 gem "tty-box"
-gem 'gemoji'
 gem "rainbow"
 gem "cat_breeds"
+gem "catgame"
+gem 'cryptozoologist'

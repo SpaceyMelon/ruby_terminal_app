@@ -167,6 +167,44 @@ end
 end
 end
 
+def crypto_game
+require 'cryptozoologist'
+require 'rainbow'
+system "clear"
+box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
+    Rainbow("cryptozoologist").seagreen end
+    print box
+    puts "Find out your creepy Cryptozoologist secret identity!"
+    puts "We'll give you a new name, address and a disguise!"
+    puts "All the things you'll need to disappear and start your new life as a cryptozoologist"
+    puts "....probably"
+while true
+    crypto = TTY::Prompt.new.select("Yeah?",  cycle: true, echo: false) do |menu|
+      menu.choice('Go for it', 1)
+      menu.choice('Back to main menu', 2)
+    case crypto
+    when 1
+puts""
+puts "Name"
+puts Cryptozoologist.full_name
+puts ""
+puts "Address"
+puts  Cryptozoologist.street_address #returns a string formatted to US street address standards
+puts Cryptozoologist.city #returns a string representing a city
+puts Cryptozoologist.state #returns a string representing a state
+puts ""
+puts "Disguise"
+puts Cryptozoologist.state
+
+    when 2
+      system "clear"
+      require "./purrfect_playdate.rb"
+      return selection
+    end
+  end  
+end
+end
+
 
 
 

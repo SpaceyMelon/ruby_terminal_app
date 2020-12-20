@@ -73,3 +73,43 @@ print box
 end
 end
 
+# last minute addition gem game - used it to code a random animal themed identity
+# put in about section as not to disrupt data/menu flow
+def crypto_game
+system "clear"
+box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
+    Rainbow("cryptozoologist").seagreen end
+    print box
+    puts ""
+    puts Rainbow("Find out your creepy Cryptozoologist secret identity!").rebeccapurple
+    puts Rainbow("We'll give you a new name, address and a disguise!").rebeccapurple
+    puts Rainbow("All the things you'll need to disappear and start your new life as a cryptozoologist").rebeccapurple
+    puts Rainbow("....probably").rebeccapurple
+    puts ""
+    require 'cryptozoologist'
+while true
+    crypto = TTY::Prompt.new.select("Yeah?",  cycle: true, echo: false) do |menu|
+      menu.choice('Go for it', 1)
+      menu.choice('Exit', 2)
+    case crypto
+    when 1
+puts""
+puts Rainbow("Name").lightcoral
+puts Cryptozoologist.full_name
+puts ""
+puts Rainbow("Address").lightcoral
+puts Cryptozoologist.street_address 
+puts Cryptozoologist.city 
+puts Cryptozoologist.state 
+puts ""
+puts Rainbow("Disguise").lightcoral
+puts Cryptozoologist.random
+
+    when 2
+        system "clear"
+        puts "Thanks for stopping by!"
+        exit
+    end
+  end  
+end
+end
