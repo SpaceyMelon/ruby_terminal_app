@@ -20,7 +20,7 @@ Dependancies - Ruby Gems
 gem "tty-prompt"
 gem "tty-box"
 gem "rainbow"
-gem "cat_breeds"
+gem "cryptozoologist"
 
 ruby 2.7.0p0 (2019-12-25 revision 647ee6f091)
 
