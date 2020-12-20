@@ -51,7 +51,7 @@ selection = TTY::Prompt.new.select("What would you like to do?") do |menu|
     
         when 4
         system "clear"
-        puts "Thanks for stooping by!"
+        puts "Thanks for stopping by!"
         exit 
 
    

@@ -29,7 +29,7 @@ puts i.to_s + Rainbow(" #{day} : #{time}").seagreen  end
 end
 
 def danger_week
-    danger_availability = { :Monday => "11:30am - 12:30pm", :Tuesday => "3:30pm - 4:30pm", :Thursday => "1:00pm - 2:00pm"}
+    danger_availability = { :Monday => "11:30am - 12:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "2:00pm - 3:00pm"}
 puts Rainbow("Danger is free to hangout during the following dates and times: ").seagreen   
 i = 0
  danger_availability.each do |day, time| 
@@ -51,7 +51,7 @@ puts i.to_s + Rainbow(" #{day} : #{time}").seagreen  end
 end
 
 def spock_week
-    spock_availability = { :Monday => "12:30pm - 1:30pm", :Tuesday => "2:30pm - 3:30pm", :Thursday => "12:00pm - 1:00pm"}
+    spock_availability = { :Monday => "2:00pm - 3:00pm", :Tuesday => "12:30pm - 1:30pm", :Thursday => "12:00pm - 1:00pm"}
 puts Rainbow("Spock is free to hangout during the following dates and times: ").seagreen 
 i = 0
  spock_availability.each do |day, time| 

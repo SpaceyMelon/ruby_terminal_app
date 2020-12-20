@@ -30,7 +30,7 @@ def about
                     end
                   end
                 end
-        puts about
+              puts about
               end
 # welcome message displayed on homepage
 def welcome_message

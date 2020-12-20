@@ -10,13 +10,13 @@ system "clear"
 
 # Arrays for available days and times
 danger_days = ["Monday","Tuesday", "Thursday"]
-danger_times = ["11:30pm - 12:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
+danger_times = ["11:30pm - 12:30pm","2:30pm - 3:30pm", "2:00pm - 3:00pm"]
 fran_days = ["Monday","Tuesday", "Thursday"]
 fran_times = ["12:00pm - 1:00pm","1:00pm - 2:OOpm", "12:30pm - 1:30pm"]
 spock_days = ["Monday","Tuesday", "Thursday"]
-spock_times = ["12:30pm - 1:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
+spock_times = ["2:00pm - 3:00pm","12:30pm - 1:30pm", "12:00pm - 1:00pm"]
 smokey_days = ["Monday","Tuesday", "Thursday"]
-smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
+smokey_times = ["12:30pm - 1:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
  
     box = TTY::Box.frame(padding: 0, align: :center, border: :thick) do
         "Booking Form"
@@ -65,7 +65,9 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
         availability_days = smokey_days
         availability_times = smokey_times
     puts ""
-    else puts "Invalid kitty name! please try again"
+    else puts "Invalid kitty name! Please try again. hint: use capital letters" 
+      puts""
+      return
     end   
 # menu to select preferred time and display confirmation
     while true
@@ -105,14 +107,20 @@ smokey_times = ["12:30pm - 2:30pm","2:30pm - 3:30pm", "12:00pm - 1:00pm"]
         age = prompt.ask Rainbow("And your age?").rebeccapurple
         @booking_info.push(age)
         
-        email = prompt.ask Rainbow("Your email address?").rebeccapurple
+       
+        email = prompt.ask Rainbow("Your email address?").rebeccapurple  
+          # cannot get working
+          # do |q|
+          # q.validate(/\A\w+@\w+\.\w+\Z/, "Invalid email address")
+
         @booking_info.push(email)
         
         booking_details
      prompt = TTY::Prompt.new
 
      # booking confirmation
-     prompt.yes? Rainbow("Would you like to confirm this booking?").lightcoral
+    confirm = prompt.yes? Rainbow("Would you like to confirm this booking?").lightcoral
+     
 
         system "clear"
 
@@ -149,7 +157,7 @@ while true
                 
       when 2
           system "clear"
-          puts "Thanks for stooping by!"
+          puts "Thanks for stopping by!"
           exit
           end
           end
@@ -158,6 +166,7 @@ while true
 end
 end
 end
+
 
 
 
